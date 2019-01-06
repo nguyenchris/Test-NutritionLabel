@@ -1,0 +1,21 @@
+{
+  "name": "Test",
+  "authors": [
+    "Chris Nguyen <34232894+nguyenchris@users.noreply.github.com>"
+  ],
+  "description": "Testing jQuery Nutrition Label plug-in",
+  "main": "app.js",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "nutrition-label-jquery-plugin": "^8.0.14"
+  }
+}
