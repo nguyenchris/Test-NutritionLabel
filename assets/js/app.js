@@ -44,78 +44,78 @@ var hi;
 // Use getNutrients Method for Recipe Class
 
 
-// $.ajax({
-//         url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
-//         method: 'POST',
-//         data: JSON.stringify({
-//             "query": "2 cups diced cooked turkey, 2 celery ribs diced, 1 small onion,diced, 2 hard-cooked eggs chopped, 3/4 cup mayonnaise, 1/2 teaspoon salt, 1/4 teaspoon pepper, 6 hamburger buns split"
-//         }),
-//         headers: {
-//             'x-app-id': '2d50c081',
-//             'x-app-key': '761211a498e0c9546a3d13704ab339b6',
-//             'x-remote-user-id': '0'
-//         },
-//         contentType: 'application/json',
-//         cache: false,
-//         dataType: 'json',
-//     })
-//     .done(function (response) {
-//         var ingredient = response.foods
-//         console.log(ingredient);
+$.ajax({
+        url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
+        method: 'POST',
+        data: JSON.stringify({
+            "query": "2 cups diced cooked turkey, 2 celery ribs diced, 1 small onion,diced, 2 hard-cooked eggs chopped, 3/4 cup mayonnaise, 1/2 teaspoon salt, 1/4 teaspoon pepper, 6 hamburger buns split"
+        }),
+        headers: {
+            'x-app-id': '2d50c081',
+            'x-app-key': '761211a498e0c9546a3d13704ab339b6',
+            'x-remote-user-id': '0'
+        },
+        contentType: 'application/json',
+        cache: false,
+        dataType: 'json',
+    })
+    .done(function (response) {
+        var ingredient = response.foods
+        console.log(ingredient);
 
-//         for (var i = 0; i < ingredient.length; i++) {
+        for (var i = 0; i < ingredient.length; i++) {
 
-//             var preArray = Object.entries(ingredient[i])
-//             console.log(preArray);
-//             var filterArray = [];
+            var preArray = Object.entries(ingredient[i])
+            console.log(preArray);
+            var filterArray = [];
 
-//             for (var j = 0; j < 17; j++) {
+            for (var j = 0; j < 17; j++) {
 
-//                 if (j === 16) {
+                if (j === 16) {
 
-//                     var calcium = ['valueCalcium'];
-//                     var vitaminD = ['valueVitaminD'];
-//                     var vitaminA = ['valueVitaminA'];
-//                     var iron = ['valueIron'];
+                    var calcium = ['valueCalcium'];
+                    var vitaminD = ['valueVitaminD'];
+                    var vitaminA = ['valueVitaminA'];
+                    var iron = ['valueIron'];
 
-//                     if (preArray[j][1][12] !== -1) {
-//                         calcium[1] = preArray[j][1][12].value;
-//                         filterArray.push(calcium);
-//                     }
+                    if (preArray[j][1][12] !== -1) {
+                        calcium[1] = preArray[j][1][12].value;
+                        filterArray.push(calcium);
+                    }
 
-//                     if (preArray[j][1][24] !== -1) {
-//                         vitaminD[1] = preArray[j][1][24].value;
-//                         filterArray.push(vitaminD);
-//                     }
+                    if (preArray[j][1][24] !== -1) {
+                        vitaminD[1] = preArray[j][1][24].value;
+                        filterArray.push(vitaminD);
+                    }
 
-//                     if (preArray[j][1][22] !== -1) {
-//                         vitaminD[1] = preArray[j][1][22].value;
-//                         filterArray.push(vitaminA);
-//                     }
+                    if (preArray[j][1][22] !== -1) {
+                        vitaminD[1] = preArray[j][1][22].value;
+                        filterArray.push(vitaminA);
+                    }
 
-//                     if (preArray[j][1][20] !== -1) {
-//                         iron[1] = preArray[j][1][20].value;
-//                         filterArray.push(iron);
-//                     }
-//                 }
-//                 filterArray.push(preArray[j]);
-//             }
-//             console.log(filterArray);
-//             var obj = Object.assign(...filterArray.map(ing => ({
-//                 [ing[0]]: ing[1]
-//             })));
-//             console.log(obj);
+                    if (preArray[j][1][20] !== -1) {
+                        iron[1] = preArray[j][1][20].value;
+                        filterArray.push(iron);
+                    }
+                }
+                filterArray.push(preArray[j]);
+            }
+            console.log(filterArray);
+            var obj = Object.assign(...filterArray.map(ing => ({
+                [ing[0]]: ing[1]
+            })));
+            console.log(obj);
 
-//             // obj will return object of all the "nf_" properties for each ingredient in the recipe
-//         }
+            // obj will return object of all the "nf_" properties for each ingredient in the recipe
+        }
 
 
 
-//     })
-//     .fail(function (error) {
-//         console.log(error.responseText);
-//         console.log(error);
-//     });
+    })
+    .fail(function (error) {
+        console.log(error.responseText);
+        console.log(error);
+    });
 
 
 
